@@ -21,7 +21,7 @@ class Detail extends StatelessWidget {
           backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(color: Colors.white),
           title: Text(
-            drinks['strDrink'],
+            "${drinks['strDrink']}",
             style: TextStyle(color: Colors.white),
           ),
         ),

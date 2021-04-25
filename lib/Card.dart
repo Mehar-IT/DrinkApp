@@ -23,7 +23,6 @@ class _CaradState extends State<Carad> {
     res = await http.get(api);
     drinks = jsonDecode(res.body)['drinks'];
     setState(() {});
-    print(drinks);
   }
 
   @override
@@ -38,21 +37,21 @@ class _CaradState extends State<Carad> {
                     tag: drinks[index]['idDrink'],
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(
-                        drinks['strDrinkThumb'] ??
+                        drinks[index]['strDrinkThumb'] ??
                             'https://st4.depositphotos.com/17828278/24401/v/600/depositphotos_244011872'
                                 '-stock-illustration-image-vector-symbol-missing-available.jpg',
                       ),
                     ),
                   ),
                   title: Text(
-                    '${drinks['strDrink']}',
+                    '${drinks[index]['strDrink']}',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 22.0,
                     ),
                   ),
                   subtitle: Text(
-                    '${drinks['idDrink']}',
+                    '${drinks[index]['idDrink']}',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -60,7 +59,7 @@ class _CaradState extends State<Carad> {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return Detail(drinks: drinks);
+                      return Detail(drinks: drinks[index]);
                     }));
                   },
                 );
